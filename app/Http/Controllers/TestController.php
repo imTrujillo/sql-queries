@@ -55,12 +55,12 @@ class TestController extends Controller
     }
     public function Ex6()
     {
-        //se cuenta la cantidad de registros del usuario con id = 5
+        //se muestra la cantidad de registros del usuario con id = 5
         return Pedido::where('id_usuario', 5)->count();
     }
     public function Ex7()
     {
-        //se obtienen tanto detalles del producto como del usuario, ordenandose según el precio de forma descedente.
+        //se obtienen tanto detalles del producto como del usuario, ordenandose según el precio de forma descendente.
         return Pedido::select('pedido.producto', 'pedido.cantidad', 'pedido.total', 'users.name as usuario', 'users.email', 'users.phone')->join('users', 'pedido.id_usuario', 'users.id')->orderBy('pedido.total', 'desc')->get();
     }
     public function Ex8()
@@ -70,12 +70,12 @@ class TestController extends Controller
     }
     public function Ex9()
     {
-        //se filtra la base de datos, obteniendo el pedido mas economico junto al nombre de usuario
+        //se filtra la base de datos, obteniendo el pedido mas economico junto a su nombre de usuario
         return Pedido::select('pedido.producto', 'pedido.cantidad', 'pedido.total', 'users.name as usuario')->join('users', 'pedido.id_usuario', 'users.id')->orderBy('pedido.total', 'asc')->first();
     }
     public function Ex10()
     {
-        //se clasifican los pedidos segun el nombre de usuario. 
+        //se clasifican los pedidos (nombre, cantidad, total) segun el nombre de usuario. 
         return Pedido::select('users.name as usuario', DB::raw('group_concat(pedido.producto separator ", ") as productos'), DB::raw('sum(pedido.cantidad) as cantidadTotal'), DB::raw('sum(pedido.total) as total'))->join('users', 'pedido.id_usuario', 'users.id')->groupBy('users.name')->get();
     }
 }
