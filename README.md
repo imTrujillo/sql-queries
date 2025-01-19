@@ -7,6 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Documentación del proyecto
+El siguiente proyecto laravel involucra fábricas, modelos, migraciones, seeders, rutas y controladores.
+Se utilizo MySql, la base de datos se llama sql-series.
+En el controlador TestController se encuentran los 10 ejercicios, clasificados en 10 métodos con su respectiva ruta web con petición get. 
+Para probar los ejercicios, la uri tendría la estructura '/ex1', '/ex2', '/ex3', etc...
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
